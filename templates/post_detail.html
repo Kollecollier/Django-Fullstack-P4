@@ -93,7 +93,15 @@
         <div class="col-md-4 card mb-4  mt-3 ">
             <div class="card-body">
 
+                {% if commented %}
+                <div class="alert alert-success" role="alert">
+                    Your comment is being reviewed for approval
+                </div>
+
+                {% else %}
+
                 {% if user.is_authenticated %}
+
                 <h3>Leave comment</h3>
                 <p>Posting as: {{ user.username }}</p>
                 <form method="post" style="margin-top: 1,3em;">
@@ -104,6 +112,7 @@
                 <button type="submit" class="btn btn-signup btn-lg">Submit</button>
                 </form>
 
+                {% endif %}
                 {% endif %}
                
             </div>
