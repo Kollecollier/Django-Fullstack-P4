@@ -1,0 +1,14 @@
+# Query: image-flash
+# ContextLines: 1
+
+2 results - 2 files
+
+static/css/style.css:
+  40  
+  41: .image-flash {
+  42      position: absolute;
+
+templates/index.html:
+  24  
+  25:                                 <div class="image-flash">
+  26                                      <p class="author">Author: {{ post.author }}</p>
