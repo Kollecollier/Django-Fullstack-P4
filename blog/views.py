@@ -1,8 +1,10 @@
-from django.shortcuts import render, get_object_or_404, reverse
+from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.views import generic, View
 from .models import Post, Comment
 from .forms import CommentForm
 from django.http import HttpResponseRedirect
+from django.contrib import messages
+
 
 
 class Postlist(generic.ListView):
@@ -42,27 +44,43 @@ class PostDetail(View):
         if post.likes.filter(id=self.request.user.id).exists():
             liked = True
 
-        comment_form = CommentForm(data=request.POST)
-        if comment_form.is_valid():
-            comment_form.instance.email = request.user.email
-            comment_form.instance.name = request.user.username
-            comment = comment_form.save(commit=False)
-            comment.post = post
-            comment.save()
-        else:
-            comment_form = CommentForm()
+        comment_form = CommentForm(request.POST,instance=request.user)
+#        comment_form = CommentForm(data=request.POST)
+        if request.method == 'POST':
+            try:
+                comment_instance = Comment.objects.get(user=request.user, post__slug=slug)
+                comment_form = CommentForm(request.POST, instance = comment_instance)
+              
+                comment = Comment()
+                if comment_form.is_valid():
+                    comment_form.save()
+                    messages.info(request,'Your Comment Was Upadated !')
+                else:
+                    print('Not Valid')
+            except Comment.DoesNotExist:
+                comment_form = CommentForm(request.POST)
+                comment = Comment()
+                #scomment_form.body = request.user.username
+                if comment_form.is_valid():
+                    print('valid')
+                    comment.post = post
+                    comment.body = comment_form.cleaned_data['body']
+                    comment.user = request.user
+                    comment.save()
+                else:
+                    print('Not Valid')
 
-        return render(
-            request,
-            "post_detail.html",
-            {
-                'liked': liked,
-                'comments': comments,
-                'commented': True,
-                'post': post,
-                'comment_form': CommentForm()
-            },
-        )
+            return render(
+                request,
+                "post_detail.html",
+                {
+                    'liked': liked,
+                    'comments': comments,
+                    'commented': True,
+                    'post': post,
+                    'comment_form': CommentForm()
+                },
+            )
 
 
 class PostLike(View):
@@ -86,3 +104,25 @@ def post_delete(request, slug):
 
 def post_update(request, slug):
     return HttpResponseRedirect("/")
+
+def remove_comment(request,slug):
+    try:
+        comment = Comment.objects.get(post__slug=slug,user=request.user)
+        comment.delete()
+        messages.info(request,'Your Comment Was Deleted !')
+        return redirect('post_detail',slug)
+    except Comment.DoesNotExist:
+        messages.error(request,'You do not have an active comment !')
+        return  redirect('post_detail',slug)
+
+def update_comment(request,slug):
+    comment_instance = Comment.objects.get(user=request.user, post__slug=slug)
+    comment_form = CommentForm(request.POST, instance = comment_instance)
+              
+    comment = Comment()
+    if comment_form.is_valid():
+        comment_form.save()
+
+    else:
+        print('Not Valid')
+    return redirect('post_detail',slug)
