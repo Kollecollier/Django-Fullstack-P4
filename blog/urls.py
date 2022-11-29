@@ -1,3 +1,8 @@
+
+"""
+URL paths to render view's to the browser.
+"""
+
 from .import views
 from django.urls import path
 
@@ -8,6 +13,6 @@ urlpatterns = [
     path('<slug:slug>/delete/', views.post_delete, name='post_delete'),
     path('like/<slug:slug>', views.PostLike.as_view(), name='post_like'),
     path('remove-comment/<slug>/', views.remove_comment, name='remove-comment'),
-    path('update-comment/<slug>', views.update_comment,name='update-comment')
-    
+    path('update-comment/<slug>', views.update_comment, name='update-comment')
+
 ]

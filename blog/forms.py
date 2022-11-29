@@ -1,3 +1,7 @@
+"""
+Comments form, allowing users to
+comment on posts
+"""
 from .models import Comment
 from django import forms
 

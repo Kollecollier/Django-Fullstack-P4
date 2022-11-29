@@ -1,3 +1,7 @@
+"""
+Database models for the blog app
+& comments section.
+"""
 from django.db import models
 from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
@@ -5,6 +9,7 @@ from cloudinary.models import CloudinaryField
 STATUS = ((0, "Draft"), (1, "Published"))
 
 
+# Model provided from "I think therefore I blog" walkthrough.
 class Post(models.Model):
     title = models.CharField(max_length=250, unique=True)
     slug = models.SlugField(max_length=250, unique=True)
@@ -27,10 +32,9 @@ class Post(models.Model):
         return self.likes.count()
 
 
+# Model provided from "I think therefore I blog" walkthrough.
 class Comment(models.Model):
     post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name="comments")
-#    name = models.CharField(max_length=100)
-#    email = models.EmailField()
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     body = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
