@@ -1,0 +1,8 @@
+# Query: django_extensions
+# ContextLines: 1
+
+1 result - 1 file
+
+project/settings.py:
+  45      'cloudinary',
+  47      'blog',
