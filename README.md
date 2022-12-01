@@ -150,7 +150,7 @@ Also worth mentioning that the "E" beside "preview" stands for "Explicit Content
  - 6 Added all the code to the app, git added and pushed after every new code added, migrated after every model change.
  - 7 Before final deployment, some tests were done to the code to check for any error ect (See testing section)
  - 8 Deployed with the following config vars:
- ![This is an image]()
+ ![This is an image](https://res.cloudinary.com/kolle1993/image/upload/v1669885870/Metalblog/configvars_lk61bs.png)
 
  # Extentions
  # Used Apps
