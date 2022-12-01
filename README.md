@@ -15,6 +15,7 @@
     - 1 WireFrame and routing
     - 2 Frontend Interface
     - 3 Authentication
+    - 4 Features
 
  <br />
 
@@ -75,28 +76,27 @@
 
 - ### The login page:
 
-- When pressing the login page, you will get redirected to Sign in form page.
 
-  As any other website, you fill out your username and password and then get redirected to the home page as a logged in user.
-
+    - When pressing the login page, you will get redirected to Sign in form page.
+    As any other website, you fill out your username and password and then get redirected to the home page as a logged in user. <br />
     ![This is an image](https://res.cloudinary.com/kolle1993/image/upload/v1669644058/Metalblog/sign_in_oirxou.png) <br />
 
   - Pressing the "sign up here!" link will redirect you to the "Register" page. 
 
   - There is also a "Remember me" option provided that will save your credentials.
 
+- ### The Logout page:
+
+    - The logout page is as seen below, asking if the user if they are sure they want to logout!
+
+    ![This is an image](https://res.cloudinary.com/kolle1993/image/upload/v1669715490/Metalblog/signout_vsiw3s.png)
+
+- Upon successful logout, the following message is displayed:
+
+    ![This is an image](https://res.cloudinary.com/kolle1993/image/upload/v1669715621/Metalblog/singedoutmessage_q3pz8w.png)
 
 
-
-
-
-
-
-
-
-
-
-
+# 4. Features
   - ## The NavBar
 
  - #### This Navigation bar is clean and simple and more or less says it'self!
@@ -117,3 +117,44 @@
         ![This is an image](https://res.cloudinary.com/kolle1993/image/upload/v1669642324/Metalblog/rightnav_a9n8fc.png)
         - The right side of the navbar shows the same if you are logged in or not.
 <br />
+  - ## Spotify Player
+    - On the post pages, there are diffrent media players for the diffrent artist's the post is refering to, inbedded with a javascript code into the blog post. Simply play the music by pressing play, and your music will start playing!
+
+    ![This is an image](https://res.cloudinary.com/kolle1993/image/upload/v1669716551/Metalblog/dplayer_ujmkab.png)
+<br />
+
+- Please notice the diffrent players here, the player for a so called "singel" (a one song release), is just playable as a preview. <br>
+Also worth mentioning that the "E" beside "preview" stands for "Explicit Content" and is targeted for a mature audiance.
+
+    ![This is an image](https://res.cloudinary.com/kolle1993/image/upload/v1669716632/Metalblog/mplayer_xyytd3.png)
+
+- ## The Comment Section
+ - On every post page at the bottom of the post there is a comment section and a comment field.
+ 
+ - ## The comment section view (logged out):
+    - If you are logged out or not an authenticated user, the comment section will only display the comment,time,date and the user that created the comment.
+
+ ![This is an image]()
+
+
+
+
+
+ - ## Deployment Steps
+    <br>
+ - 1 Created Workspace
+ - 2 Created app on heroku
+ - 3 Took all steps in gitpod to install the app to get it running
+ - 4 Server used is guniorn
+ - 5 Deployed to heroku at an early stage for convenience
+ - 6 Added all the code to the app, git added and pushed after every new code added, migrated after every model change.
+ - 7 Before final deployment, some tests were done to the code to check for any error ect (See testing section)
+ - 8 Deployed with the following config vars:
+ ![This is an image]()
+
+ # Extentions
+ # Used Apps
+ # Admin Backend
+ # Testing
+ # UserStory
+ # Credits

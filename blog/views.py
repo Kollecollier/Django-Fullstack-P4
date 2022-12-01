@@ -118,7 +118,7 @@ def post_update(request, slug):
 
 def remove_comment(request, slug):
     try:
-        comment = Comment.objects.get(post__slug=slug, user=request.user)
+        comment = Comment.objects.get(post__slug=slug,user=request.user)
         comment.delete()
         messages.info(request, 'Your Comment Was Deleted !')
         return redirect('post_detail', slug)
