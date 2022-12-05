@@ -45,6 +45,7 @@ class PostDetail(View):
         Submit a comment to a
         blog post.
         """
+        themessage = None
         queryset = Post.objects.filter(status=1)
         post = get_object_or_404(queryset, slug=slug)
         comments = post.comments.filter(approved=True).order_by('created_on')
@@ -62,6 +63,7 @@ class PostDetail(View):
                 if comment_form.is_valid():
                     comment_form.save()
                     messages.info(request, 'Your Comment Was Upadated !')
+                    themessage ='Your Comment Was Upadated !'
                 else:
                     print('Not Valid')
             except Comment.DoesNotExist:
@@ -73,6 +75,8 @@ class PostDetail(View):
                     comment.body = comment_form.cleaned_data['body']
                     comment.user = request.user
                     comment.save()
+                    messages.info(request, 'Your comment is being reviewed for approval')
+                    themessage = 'Your comment is being reviewed for approval'
                 else:
                     print('Not Valid')
 
@@ -84,7 +88,8 @@ class PostDetail(View):
                     'comments': comments,
                     'commented': True,
                     'post': post,
-                    'comment_form': CommentForm()
+                    'comment_form': CommentForm(),
+                    'themessage':themessage
                 },
             )
 

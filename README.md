@@ -17,6 +17,12 @@
     - 3 Authentication
     - 4 Features
     - 5 Comment section
+    - 6 CRUD
+    - 7 Deployment steps
+    - 8 Extentions
+    - 9 Installed apps
+    - 10 Admin panel
+    - 11 
 
  <br />
 
@@ -143,8 +149,11 @@ Also worth mentioning that the "E" beside "preview" stands for "Explicit Content
  ![This is an image](https://res.cloudinary.com/kolle1993/image/upload/v1670234063/Metalblog/comment_signed_out_k5s2ot.png)
 
  - ## The comment section view (logged in):
+
  - If you are logged in user, the comment field changes to this view:
+
  ![This is an image](https://res.cloudinary.com/kolle1993/image/upload/v1670234580/Metalblog/logged_in_comment_ilufpk.png)
+
   - Now there is a comment form avalible for the logged in user, also showing who you are posting as.
 
   - The update button is already provided when logged a logged in user is authenticated (see comment crud funtion section.)
@@ -167,10 +176,27 @@ Also worth mentioning that the "E" beside "preview" stands for "Explicit Content
 ![This is an image](https://res.cloudinary.com/kolle1993/image/upload/v1670235581/Metalblog/comment_view_approved_flmg1t.png)
 
  - ## Comment CRUD Function
-- If you are a logged in user and you comment as been admin approved, you will se the 3 diffent options displayed on the comment 
- 
+- If you are a logged in user and you comment has been admin approved, you will se the 3 diffent options displayed on the comment field:
+![This is an image](https://res.cloudinary.com/kolle1993/image/upload/v1670239302/Metalblog/crud1_gfr8wi.png)
 
+- The Delete & and Update button is only fuctional for the logged in user that has made the comment on the page.
 
+- Pressing delete will reflect directly on the frontend and you comment will be erased from the page.
+  The image's below show the update steps:
+  ### Set your new comment in the comment form and press "Update"
+  ![This is an image](https://res.cloudinary.com/kolle1993/image/upload/v1670239921/Metalblog/crud4_hk26ld.png)
+
+   ### After pressing update, you will get a preview as shown below, is you are satisfied, press update again:
+  ![This is an image](https://res.cloudinary.com/kolle1993/image/upload/v1670239828/Metalblog/crud3_m7xbzf.png) 
+
+  ### The result is a updated comment with a new time stamp: 
+  ![This is an image](https://res.cloudinary.com/kolle1993/image/upload/v1670240498/Metalblog/crud5_bbc57a.png) 
+
+  ### Now press delete:
+  ![This is an image](https://res.cloudinary.com/kolle1993/image/upload/v1670241187/Metalblog/cruddelete_h6hkst.png)
+
+  ### As seen above, you comment has been deleted and the comment field is empty, the page also signals a message at the top leting you know your comment is gone.
+<br />
 
  - ## Deployment Steps
     <br>
@@ -180,9 +206,11 @@ Also worth mentioning that the "E" beside "preview" stands for "Explicit Content
  - 4 Server used is guniorn
  - 5 Deployed to heroku at an early stage for convenience
  - 6 Added all the code to the app, git added and pushed after every new code added, migrated after every model change.
- - 7 Before final deployment, some tests were done to the code to check for any error ect (See testing section)
- - 8 Deployed with the following config vars:
- ![This is an image](https://res.cloudinary.com/kolle1993/image/upload/v1669891541/Metalblog/vars2_DEBUG_xgmfop.png)
+ - 7 Did command pip3 freeze for txt file after each new installed app or program.
+ - 8 Before final deployment, some tests were done to the code to check for any error ect (See testing section)
+ - 9 Deployed with the following config vars:
+
+   ![This is an image](https://res.cloudinary.com/kolle1993/image/upload/v1670241884/Metalblog/vars_oemrhk.png)
  
  # Extentions Used
  - Auto Close Tag
@@ -219,7 +247,43 @@ Also worth mentioning that the "E" beside "preview" stands for "Explicit Content
 - Gunicorn (For server)
 - Bootstrap 4 (For styling and CSS templates)
 
- # Admin Backend
+ # Admin Panel
+  - The admin panel is the stardard django admin panel.
+    - This is were you can manage all comments, make posts, and were all the data is stored.
+    ## Admin Layout:
+    Site administration is as shown below, the diffrent pages on the left and recent actions on the right:
+    ![This is an image](https://res.cloudinary.com/kolle1993/image/upload/v1670253684/Metalblog/siteadmin_uc8sg3.png)
+
+    ### The most important thing's in this backend is the "Users","Posts" and "Comment" pages.
+    <br />
+  - ## Users 
+  - Here all the registered users are stored, each user has it's own data (Due to security this information will not be added here)
+  ![This is an image](https://res.cloudinary.com/kolle1993/image/upload/v1670253891/Metalblog/siteusers_dbevcj.png)
+
+- ## Posts
+ - The post page is were the admin can create a new post to published or save a draft post, inside the post page you see all the post's that are draft or published:
+ ![This is an image](https://res.cloudinary.com/kolle1993/image/upload/v1670261632/Metalblog/post_page_x00hax.png) 
+<br />
+
+ ### If you press "ADD POST" on the top right, you will be redirected to a post create form, were summernote has been implemented:
+
+ ![This is an image](https://res.cloudinary.com/kolle1993/image/upload/v1670261876/Metalblog/postsave_ut2van.png)
+
+
+ - At the bottom right of the page, you can save and add another, save and continue editing, and last save.
+   - Select "draft" or "published" before saving the blog post to set this as a draft or a published post! 
+
+- ## Comment's
+
+### In the comment's section the page is identical to the post's page!
+- Diffrence here is that you as an admin can approve or delete a selected commeent on the "Action" dropdown button, also at top right you can add a comment.
+- This page works the same and operates the same as the post page:
+ ![This is an image](https://res.cloudinary.com/kolle1993/image/upload/v1670262450/Metalblog/commentpost_vxje6o.png)
+
+ ## That cover's the backend and the frontend for this django project.
+ <br />
+
+
  # Testing
  # UserStory
  # Credits
