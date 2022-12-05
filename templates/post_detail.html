@@ -110,7 +110,9 @@
                     <!-- The body of the comment goes before the | -->
                     {{ comment.body | linebreaks }}
                 </div>
+                {% if user.is_authenticated %}
                 <a href="{% url 'remove-comment' post.slug %}" class="btn btn-signup btn-lg" style="background-color:red;">Delete</a>
+                {% endif %}
                 {% if commented %}
                 <a href="{% url 'update-comment' post.slug %}" class="btn btn-signup btn-lg" style="background-color:#d7d70e;">Update</a>
                 {% endif %}

@@ -16,6 +16,7 @@
     - 2 Frontend Interface
     - 3 Authentication
     - 4 Features
+    - 5 Comment section
 
  <br />
 
@@ -126,17 +127,48 @@
 - Please notice the diffrent players here, the player for a so called "singel" (a one song release), is just playable as a preview. <br>
 Also worth mentioning that the "E" beside "preview" stands for "Explicit Content" and is targeted for a mature audiance.
 
-    ![This is an image](https://res.cloudinary.com/kolle1993/image/upload/v1669716632/Metalblog/mplayer_xyytd3.png)
+     ![This is an image](https://res.cloudinary.com/kolle1993/image/upload/v1669716632/Metalblog/mplayer_xyytd3.png)
 
 - ## The Comment Section
- - On every post page at the bottom of the post there is a comment section and a comment field.
- 
+ - On every post page at the bottom of the post there is a comment section.
+- On everypage without a comment the field is shown as below:
+
+
+![This is an image](https://res.cloudinary.com/kolle1993/image/upload/v1670234286/Metalblog/comment_space_spuqzf.png)
+   <br />
+
  - ## The comment section view (logged out):
-    - If you are logged out or not an authenticated user, the comment section will only display the comment,time,date and the user that created the comment.
+- If you are logged out or not an authenticated user, the comment section will only display the comment,time,date and the user that created the comment if there is one.
 
- ![This is an image]()
+ ![This is an image](https://res.cloudinary.com/kolle1993/image/upload/v1670234063/Metalblog/comment_signed_out_k5s2ot.png)
 
+ - ## The comment section view (logged in):
+ - If you are logged in user, the comment field changes to this view:
+ ![This is an image](https://res.cloudinary.com/kolle1993/image/upload/v1670234580/Metalblog/logged_in_comment_ilufpk.png)
+  - Now there is a comment form avalible for the logged in user, also showing who you are posting as.
 
+  - The update button is already provided when logged a logged in user is authenticated (see comment crud funtion section.)
+
+- ## Submitting a comment
+ - When submitting a comment, the comment is sent to the backend for admin approval, As seen below, this is the process of commenting:
+
+ ![This is an image](https://res.cloudinary.com/kolle1993/image/upload/v1670234975/Metalblog/this_is_a_comment_of2xop.png)
+
+ ![This is an image](https://res.cloudinary.com/kolle1993/image/upload/v1670235082/Metalblog/comment_approval_er8lzo.png)
+
+## The comment is sent to thhe backend for admin approval:
+ ![This is an image](https://res.cloudinary.com/kolle1993/image/upload/v1670235196/Metalblog/comment_approval_admin_wxckkc.png)
+
+ - Admin select's the "approved" action then presses "go":
+
+![This is an image](https://res.cloudinary.com/kolle1993/image/upload/v1670235309/Metalblog/comment_approval_admin_action_ku7wyl.png)
+
+- After Admin approval, the comment is greenlit and you comment is now shown on the comment section of the page:
+![This is an image](https://res.cloudinary.com/kolle1993/image/upload/v1670235581/Metalblog/comment_view_approved_flmg1t.png)
+
+ - ## Comment CRUD Function
+- If you are a logged in user and you comment as been admin approved, you will se the 3 diffent options displayed on the comment 
+ 
 
 
 
@@ -150,12 +182,47 @@ Also worth mentioning that the "E" beside "preview" stands for "Explicit Content
  - 6 Added all the code to the app, git added and pushed after every new code added, migrated after every model change.
  - 7 Before final deployment, some tests were done to the code to check for any error ect (See testing section)
  - 8 Deployed with the following config vars:
- ![This is an image](https://res.cloudinary.com/kolle1993/image/upload/v1669885870/Metalblog/configvars_lk61bs.png)
+ ![This is an image](https://res.cloudinary.com/kolle1993/image/upload/v1669891541/Metalblog/vars2_DEBUG_xgmfop.png)
+ 
+ # Extentions Used
+ - Auto Close Tag
+ - Auto Open Preview Panel
+ - Beautify, but has been replaced with prettier
+ - Bootstrap 4 CDN
+ - Django
+ - ES7 React (For react components but auto installed)
+ - Groovy lint, Format and Fix
+ - Html Css support
+ - Jupyter, keymap, notebook renderers
+ - Pretty Formatter
+ - Python
+ - React Javascript snippet
+ - React Typescript snippet (XAcademy)
+ <br />
 
- # Extentions
  # Used Apps
+- django contrib admin (FOR BACKEND)
+- django contrib auth (FOR BACKEND)
+- django contrib contenttypes
+- django contrib sessions
+- django contrib messages 
+- django contrib sites
+- allauth (AUTHENTICATION)
+- allauth account 
+- allauth socialaccount (FOR SOCIAL ACCOUNT REGISTRATION)
+- cloudinary storage (CLOUD BASED FILE STROAGE)
+- django contrib staticfiles
+- cloudinary (CLOUDBASED STORAGE)
+- blog (APP NAME)
+- django summernote (BACKEND POST)
+- crispy forms (BACKEND POST FORM STYLE)
+- Gunicorn (For server)
+- Bootstrap 4 (For styling and CSS templates)
+
  # Admin Backend
  # Testing
  # UserStory
  # Credits
  # Debuging
+  1 cloudinary not delcared in settings 2.typo configvar, fixed
+ 
