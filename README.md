@@ -11,6 +11,11 @@
  Please take the time to check this read me file and get an understanding of the website.
 
 ![This is an image](https://res.cloudinary.com/kolle1993/image/upload/v1669640729/Metalblog/FireShot_Capture_109_-_Am_I_Responsive__-_ui.dev_oscpyq.png)
+<br />
+  ## You can find the live app version [here!](https://django-1337.herokuapp.com/)
+  ## My source code can be found [here!](https://github.com/Kollecollier/Django_fullstack_frameworkblog)
+  <br />
+  
 - # Content list:
     - 1 WireFrame and routing
     - 2 Frontend Interface
@@ -22,7 +27,15 @@
     - 8 Extentions
     - 9 Installed apps
     - 10 Admin panel
-    - 11 
+    - 11 Testing
+    - 12 User storys
+    - 13 Code testing
+    - 14 Response
+    - 15 Future improvments
+    - 16 Manual Test
+    - 17 Debugging
+    - 18 Credits
+    - 19 Contact
 
  <br />
 
@@ -211,6 +224,10 @@ Also worth mentioning that the "E" beside "preview" stands for "Explicit Content
  - 9 Deployed with the following config vars:
 
    ![This is an image](https://res.cloudinary.com/kolle1993/image/upload/v1670241884/Metalblog/vars_oemrhk.png)
+
+  - The code can be found on github [Here]()
+
+  - The Heroku live app can be found [Here]()
  
  # Extentions Used
  - Auto Close Tag
@@ -285,8 +302,138 @@ Also worth mentioning that the "E" beside "preview" stands for "Explicit Content
 
 
  # Testing
+
+  - Here are some results on my testing with the code and terminal result's.
+
+  ## Index.html rendering:
+  - Code and Result's: 
+
+  ![This is an image](https://res.cloudinary.com/kolle1993/image/upload/v1670328095/indextest_t2fd42.png)
+
+
+  ## Base.html rendering:
+
+  - Code and Result's:
+
+   ![This is an image](https://res.cloudinary.com/kolle1993/image/upload/v1670328452/basetest_nd99ol.png)
+
+## For future project's and improvments the testing will be more detailed, This is just an example of the understanding of the test's.
+<br />
+
  # UserStory
- # Credits
- # Debuging
-  1 cloudinary not delcared in settings 2.typo configvar, fixed
+ - Here i will post the userstory's provided in this project to keep an agile workstyle and a good way for me to keep my milestones in check for all the user functions.
+   - To get redirected to my project list 
+   <a href="https://github.com/users/Kollecollier/projects/14/views/1">click here!</a>
+   ### The following image show's a screenprint of the Userstorys:
+   ![This is an image](https://res.cloudinary.com/kolle1993/image/upload/v1670331412/Metalblog/user_story_n8fz6s.png)
+
+     - Each user story has a diffrent comment's for user functions and also for admin site functions, click on the following user story to get a detailed view over what the story contains in terms of milestones.
+
+      - Like the image show's below, is the same o the rest of the user story's!
+
+     ![This is an image](https://res.cloudinary.com/kolle1993/image/upload/v1670405019/Metalblog/unseralt_fhcu4e.png)
+
+<br />
+
+ # Code Testing!
+ - I have run my code i the different test's to se is there was anything wrong with my html or css.
+
+ ### HTML with (https://validator.w3.org/):
+  ## As you can see my tester is throwing some error's but that is due to image alt text's, these alt text's can't be added due to cloudinary is the hist for file storing, and also some other html error that are refering to the code but this is also showing due to bootstrap templates:
+  ![This is an image](https://res.cloudinary.com/kolle1993/image/upload/v1670406726/Metalblog/html_errors_blxcoy.png)
+
+## Testing CSS with (https://jigsaw.w3.org/):
+The Css file passed with flying green(Pls note this is swedish texted result's, will change for future work):
+  ![This is an image](https://res.cloudinary.com/kolle1993/image/upload/v1670407093/Metalblog/Css_epixar.png)
+
+## Lighthouse Mobile:
+ - The LH for mobile are show'n below, in my inspector i was provided with the information that image res could be some what optimized:
+ ![This is an image](https://res.cloudinary.com/kolle1993/image/upload/v1670412422/Metalblog/lighthousemobile_qahmld.png)
+
+
+## Lighthouse Deskop:
+ - The LH for deskop are show'n below, in my inspector i was provided with the information that image res could be some what optimized on the images the same as for the mobile:
+ ![This is an image](https://res.cloudinary.com/kolle1993/image/upload/v1670411846/Metalblog/lighthousedeskop_fxztbq.png)
  
+## Responsive
+ - The bootstrap and webpage breaks under 222px in width.
+  - The hight has no breakpoint according to my own testing.
+<br />
+
+# Future Improvments
+
+- As a developer it's important to see your errors and understand and see what can be better and can be improved! This is my take on future improvments!
+
+  - Invest more time in reading documentation for django to optimze the user experience and user interface to get the best out of django!
+  <br />
+  - Improving the management opitons.
+Adding a notification code that let's admin's know when there has been a new appointment request.
+
+  - Make a more detailed testing section
+
+  - Optimizing photo resolutions
+<br />
+
+ # Manuall testing:
+   - During the coding process i have manually check the github problem terminal and resolves all issues as i have gone along.
+   - I have also run the code in pep8 muliple times and corrected issues on the way.
+   - Some error's under the process such as missing docstring's stil remain's on some pages.
+
+  - Used language:
+      - HTML
+      - CSS
+      - Javascript
+      - Python
+
+
+# Debuging
+ ### Some of the following occured as bugs or simply errors that i have resolved during the coding of this website.
+ <br />
+  - 1 Cloudinary was not properly delcared in settings.py file. This resulted in a failure of deployment. <br />
+  I declared The Cloudinary in the settings but still got a launch error on deployment. <br />
+  This was fixed via a typo in my heroku cloudinary config vars, and after this my app was launced.
+  
+  
+  
+  
+  2.typo configvar, fixed
+  2 testing error when run on postgres, fixed by commenting out postgres and running on local SQLite
+
+
+
+ # Credits & Content
+ - Template's and this project ide and all boilerplates have been provided by my school [Code Institue](https://codeinstitute.net/se/) course of "Hello Django" & "I think therefor i blog".
+
+ - Also a bigh thank's to my good friend Atit Bimali who worked with me to get my "Crud" functions working and give me a good source of information.
+
+ - [Heroku](heroku.com) for app hosting and deployment.
+
+ - [Gitpod](https://www.gitpod.io/) for workspace.
+
+ - [Microsoft Paint](https://apps.microsoft.com/store/detail/paint/9PCFS5B6T72H?hl=en-us&gl=us) for all of my picture editing.
+
+ - [Spotify](https://www.spotify.com/) for the inbedded javascript media player's on artist post's
+
+ - [Cloudinary](https://cloudinary.com/?&utm_campaign=1329&utm_content=instapagelogocta-selfservetest) for cloud storage
+
+ - [Google Fonts](https://fonts.google.com/) for font style
+
+ - [Flat icon](https://www.flaticon.com/free-icon/facebook_124010) for footer icons
+
+- ## The following band's for image usage on my blog posts, 
+
+ - [Make Them Suffer](https://www.makethemsuffer.com.au/) 
+
+ - [The Devil Wears prada](https://tdwpband.com/)
+
+ - [Erase The Day](https://music.erasetheday.com/anxious?fbclid=IwAR2K9FmmBmp3E2BkVFJZc3XQtt8rWe4xpDSCe2QVdD3r4aNkAYc4L9wiO-8) <br /> 
+
+ - [Bloodstock Festival 2023](https://www.bloodstock.uk.com/events/boa-2023/stages)
+
+ # Contact
+
+ - If you have any question's or need to contact me in anyway:
+   -  Email: kristoffer.collier@live.se
+   - [GitHub](https://github.com/Kollecollier)
+   - [Facebook](https://www.facebook.com/kristoffer.collier/)
+   - [Linkedin](https://www.linkedin.com/in/kristoffer-collier-2b972b40/?original_referer=)
