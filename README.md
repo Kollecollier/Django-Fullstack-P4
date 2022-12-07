@@ -389,16 +389,14 @@ Adding a notification code that let's admin's know when there has been a new app
 # Debuging
  ### Some of the following occured as bugs or simply errors that i have resolved during the coding of this website.
  <br />
-  - 1 Cloudinary was not properly delcared in settings.py file. This resulted in a failure of deployment. <br />
+
+- 1 Cloudinary was not properly delcared in settings.py file. This resulted in  a failure of deployment. <br />
   I declared The Cloudinary in the settings but still got a launch error on deployment. <br />
   This was fixed via a typo in my heroku cloudinary config vars, and after this my app was launced.
-  
-  
-  
-  
-  2.typo configvar, fixed
-  2 testing error when run on postgres, fixed by commenting out postgres and running on local SQLite
 
+- 2 While testing with Testcase i kept getting an error when running. <br />
+The error occured when i tryed to the the database on postgres, this error fixed by commenting out postgres and running on local SQLite database in my settings.py and migrating this to the project. <br />
+When the testing was done, i commented out my local SQLite database and restored to my postgres.
 
 
  # Credits & Content
