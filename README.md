@@ -223,7 +223,7 @@ Also worth mentioning that the "E" beside "preview" stands for "Explicit Content
  - 8 Before final deployment, some tests were done to the code to check for any error ect (See testing section)
  - 9 Deployed with the following config vars:
 
-   ![This is an image](https://res.cloudinary.com/kolle1993/image/upload/v1670241884/Metalblog/vars_oemrhk.png)
+   ![This is an image](https://res.cloudinary.com/kolle1993/image/upload/v1670582016/Metalblog/Namnl%C3%B6s_aactvt.png)
 
   - The code can be found on github [Here]()
 
@@ -348,11 +348,13 @@ The Css file passed with flying green(Pls note this is swedish texted result's, 
 
 ## Lighthouse Mobile:
  - The LH for mobile are show'n below, in my inspector i was provided with the information that image res could be some what optimized:
+ 
  ![This is an image](https://res.cloudinary.com/kolle1993/image/upload/v1670412422/Metalblog/lighthousemobile_qahmld.png)
 
 
 ## Lighthouse Deskop:
  - The LH for deskop are show'n below, in my inspector i was provided with the information that image res could be some what optimized on the images the same as for the mobile:
+
  ![This is an image](https://res.cloudinary.com/kolle1993/image/upload/v1670411846/Metalblog/lighthousedeskop_fxztbq.png)
  
 ## Responsive
