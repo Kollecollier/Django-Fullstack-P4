@@ -1,7 +1,7 @@
 {% extends 'base.html' %} {% block content %}
 
 {% load crispy_forms_tags %}
-
+{% load filter %}
 <div class="masthead">
     <div class="container">
         <div class="row g-0">
@@ -95,7 +95,7 @@
             <div class="card-body">
                 <!-- We want a for loop inside the empty control tags to iterate through each comment in comments -->
                 {% for comment in comments %}
-                 {{comment}}
+                {{comment}}
                 <div class="comments" style="padding: 10px;">
                     <p class="font-weight-bold">
                         <!-- The commenter's name goes here. Check the model if you're not sure what that is -->
@@ -105,17 +105,26 @@
                             {{ comment.created_on }}
                         </span> wrote:
                     </p>
-
-
                     <!-- The body of the comment goes before the | -->
+                    {% if user.is_authenticated %}
+                    {% if comment|is_comment_owner:request.user %}
+                    <form method="post">
+                        {% csrf_token %}
+                    <div class="input-group col-md-4 mb-2">
+                    <input hidden type="text" value={{comment.id}} name="comment_id">
+                    <input type="text" value="{{comment.body}}" name="updated_comment" class="form-control" placeholder="Comment" style="width:50%">
+                    <button class="btn btn-outline-info" type="submit" id="button-addon2">Update</button>
+                    </div>
+                </form>
+                    <a href="{% url 'remove-comment' post.slug %}" class="btn btn-signup btn-lg" style="background-color:red; font-size:0.7rem !important;">Delete</a>
+
+                    {% else %}
                     {{ comment.body | linebreaks }}
+                    {% endif %}
+
+                {% endif %}
                 </div>
-                {% if user.is_authenticated %}
-                <a href="{% url 'remove-comment' post.slug %}" class="btn btn-signup btn-lg" style="background-color:red;">Delete</a>
-                {% endif %}
-                {% if commented %}
-                <a href="{% url 'update-comment' post.slug %}" class="btn btn-signup btn-lg" style="background-color:#d7d70e;">Update</a>
-                {% endif %}
+                <br>
                 <!-- Our for loop ends here -->
                 {% endfor %}
             </div>
@@ -125,12 +134,12 @@
         <div class="col-md-4 card mb-4  mt-3 ">
             <div class="card-body">
 
-                {% if commented %}
+                {% comment %} {% if commented %}
                 <div class="alert alert-success" role="alert">
                     {{themessage}}
                 </div>
 
-                {% else %}
+                {% else %} {% endcomment %}
 
                 {% if user.is_authenticated %}
 
@@ -142,13 +151,9 @@
                     {% csrf_token %}
 
                 <button type="submit" class="btn btn-signup btn-lg">Submit</button>
-                <button type='submit' class="btn btn-signup btn-lg" style="background-color:black;">Update</a>
-                    
                 </form>
                 
                 {% endif %}
-                {% endif %}
-               
             </div>
         </div>
     </div>

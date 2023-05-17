@@ -56,17 +56,15 @@ class PostDetail(View):
         comment_form = CommentForm(request.POST, instance=request.user)
 #        comment_form = CommentForm(data=request.POST)
         if request.method == 'POST':
-            try:
-                comment_instance = Comment.objects.get(user=request.user, post__slug=slug)
-                comment_form = CommentForm(request.POST, instance = comment_instance)
-                comment = Comment()
-                if comment_form.is_valid():
-                    comment_form.save()
-                    messages.info(request, 'Your Comment Was Upadated !')
-                    themessage ='Your Comment Was Upadated !'
-                else:
-                    print('Not Valid')
-            except Comment.DoesNotExist:
+            comment_id = request.POST.get('comment_id')
+            if comment_id is not None:
+                comment_instance = Comment.objects.get(user=request.user, id=comment_id, post__slug=slug)
+                print(request.POST.get('updated_comment'))
+                comment_instance.body = request.POST.get('updated_comment')
+                comment_instance.save()
+                messages.info(request, 'Your comment has been updated !')
+
+            else:
                 comment_form = CommentForm(request.POST)
                 comment = Comment()
                 if comment_form.is_valid():
@@ -76,11 +74,8 @@ class PostDetail(View):
                     comment.user = request.user
                     comment.save()
                     messages.info(request, 'Your comment is being reviewed for approval')
-                    themessage = 'Your comment is being reviewed for approval'
-                else:
-                    print('Not Valid')
 
-            return render(
+        return render(
                 request,
                 "post_detail.html",
                 {
@@ -89,7 +84,6 @@ class PostDetail(View):
                     'commented': True,
                     'post': post,
                     'comment_form': CommentForm(),
-                    'themessage':themessage
                 },
             )
 
@@ -123,22 +117,10 @@ def post_update(request, slug):
 
 def remove_comment(request, slug):
     try:
-        comment = Comment.objects.get(post__slug=slug,user=request.user)
+        comment = Comment.objects.get(post__slug=slug, user=request.user)
         comment.delete()
         messages.info(request, 'Your Comment Was Deleted !')
         return redirect('post_detail', slug)
     except Comment.DoesNotExist:
         messages.error(request, 'You do not have an active comment !')
         return redirect('post_detail', slug)
-
-
-def update_comment(request, slug):
-    comment_instance = Comment.objects.get(user=request.user, post__slug=slug)
-    comment_form = CommentForm(request.POST, instance = comment_instance)
-    comment = Comment()
-    if comment_form.is_valid():
-        comment_form.save()
-
-    else:
-        print('Not Valid')
-    return redirect('post_detail', slug)
