@@ -28,7 +28,7 @@
     - ###  [Extentions](#7-extentions-used)
     - ###  [Installed apps](#8-used-apps)
     - ###  [Admin panel](#9-admin-panel)
-    - ###  [Testing](#10-testing)
+    - ###  [Testing](#10-testing)clear
     - ###  [User storys](#11-userstory)
     - ###  [Code testing](#12-code-testing)
     - ###  [Future improvments](#13-future-improvments)
