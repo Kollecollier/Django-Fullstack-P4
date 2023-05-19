@@ -9,13 +9,13 @@ from cloudinary.models import CloudinaryField
 STATUS = ((0, "Draft"), (1, "Published"))
 
 
-# Model provided from "I think therefore I blog" walkthrough.
+# Model provided from "I think therefore I blog" walkthrough, with custom changes.
 class Post(models.Model):
-    title = models.CharField(max_length=250, unique=True)
+    blog_title = models.CharField(max_length=250, unique=True)
     slug = models.SlugField(max_length=250, unique=True)
-    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="blog_posts")
+    blog_author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="blog_posts")
     updated_on = models.DateTimeField(auto_now=True)
-    content = models.TextField()
+    blog_content = models.TextField()
     featured_image = CloudinaryField('image', default='placeholder')
     excerpt = models.TextField(blank=True)
     created_on = models.DateTimeField(auto_now=True)
@@ -26,17 +26,17 @@ class Post(models.Model):
         ordering = ['-created_on']
 
     def __str__(self):
-        return self.title
+        return self.blog_title
 
     def number_of_likes(self):
         return self.likes.count()
 
 
-# Model provided from "I think therefore I blog" walkthrough.
+# Model provided from "I think therefore I blog" walkthrough, made custom changes.
 class Comment(models.Model):
-    post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name="comments")
+    blog_post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name="comments")
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    body = models.TextField()
+    message = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
     approved = models.BooleanField(default=False)
 
@@ -44,4 +44,4 @@ class Comment(models.Model):
         ordering = ['created_on']
 
     def __str__(self):
-        return f"comment {self.body} by {self.user.username}"
+        return f"comment {self.message} by {self.user.username}"

@@ -109,6 +109,11 @@ DATABASES = {
     'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
  }
 
+# Database configuration for running tests
+DATABASES['default'] = {
+    'ENGINE': 'django.db.backends.sqlite3',
+    'NAME': ':memory:',
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators

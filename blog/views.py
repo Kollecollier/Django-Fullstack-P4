@@ -59,8 +59,7 @@ class PostDetail(View):
             comment_id = request.POST.get('comment_id')
             if comment_id is not None:
                 comment_instance = Comment.objects.get(user=request.user, id=comment_id, post__slug=slug)
-                print(request.POST.get('updated_comment'))
-                comment_instance.body = request.POST.get('updated_comment')
+                comment_instance.message = request.POST.get('updated_comment')
                 comment_instance.save()
                 messages.info(request, 'Your comment has been updated !')
 
@@ -69,8 +68,8 @@ class PostDetail(View):
                 comment = Comment()
                 if comment_form.is_valid():
                     print('valid')
-                    comment.post = post
-                    comment.body = comment_form.cleaned_data['body']
+                    comment.blog_post = post
+                    comment.message = comment_form.cleaned_data['message']
                     comment.user = request.user
                     comment.save()
                     messages.info(request, 'Your comment is being reviewed for approval')
@@ -117,7 +116,7 @@ def post_update(request, slug):
 
 def remove_comment(request, slug):
     try:
-        comment = Comment.objects.get(post__slug=slug, user=request.user)
+        comment = Comment.objects.get(blog_post__slug=slug, user=request.user)
         comment.delete()
         messages.info(request, 'Your Comment Was Deleted !')
         return redirect('post_detail', slug)

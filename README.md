@@ -17,25 +17,26 @@
   <br />
   
 - # Content list:
-    - 1 WireFrame and routing
-    - 2 Frontend Interface
-    - 3 Authentication
-    - 4 Features
-    - 5 Comment section
-    - 6 CRUD
-    - 7 Deployment steps
-    - 8 Extentions
-    - 9 Installed apps
-    - 10 Admin panel
-    - 11 Testing
-    - 12 User storys
-    - 13 Code testing
-    - 14 Response
-    - 15 Future improvments
-    - 16 Manual Test
-    - 17 Debugging
-    - 18 Credits
-    - 19 Contact
+
+    - ### [WireFrame and routing](#1-wireframe-and-routing)
+    - ### [Frontend Interface](#2-frontend--pages)
+    - ### [Authentication](#3-authentication)
+    - ### [Features](#4-features)
+    - ### [Comment and CRUD](#5-the-comment-section-updated--new-changes-are-documented-under-changes)
+    - ###  [Comment changes](#51-changes-to-comments)
+    - ###  [Deployment steps](#6-deployment-steps)
+    - ###  [Extentions](#7-extentions-used)
+    - ###  [Installed apps](#8-used-apps)
+    - ###  [Admin panel](#9-admin-panel)
+    - ###  [Testing](#10-testing)
+    - ###  [User storys](#11-userstory)
+    - ###  [Code testing](#12-code-testing)
+    - ###  [Future improvments](#13-future-improvments)
+    - ###  [Improvements since submission](#14-improvments-since-submission)
+    - ###  [Manual Test](#15-manuall-testing)
+    - ###  [Debugging](#16-debuging)
+    - ###  [Credits](#17-credits--content)
+    - ###  [Contact](#18-contact)
 
  <br />
 
@@ -116,7 +117,7 @@
     ![This is an image](https://res.cloudinary.com/kolle1993/image/upload/v1669715621/Metalblog/singedoutmessage_q3pz8w.png)
 
 
-# 4. Features
+# 4 Features
   - ## The NavBar
 
  - #### This Navigation bar is clean and simple and more or less says it'self!
@@ -148,7 +149,7 @@ Also worth mentioning that the "E" beside "preview" stands for "Explicit Content
 
      ![This is an image](https://res.cloudinary.com/kolle1993/image/upload/v1669716632/Metalblog/mplayer_xyytd3.png)
 
-- ## The Comment Section
+- # 5 The Comment Section, updated! ( New change's are documented under "Changes" )
  - On every post page at the bottom of the post there is a comment section.
 - On everypage without a comment the field is shown as below:
 
@@ -161,20 +162,20 @@ Also worth mentioning that the "E" beside "preview" stands for "Explicit Content
 
  ![This is an image](https://res.cloudinary.com/kolle1993/image/upload/v1670234063/Metalblog/comment_signed_out_k5s2ot.png)
 
- - ## The comment section view (logged in):
+ - ## The comment section view (logged in, Updated View):
 
  - If you are logged in user, the comment field changes to this view:
 
- ![This is an image](https://res.cloudinary.com/kolle1993/image/upload/v1670234580/Metalblog/logged_in_comment_ilufpk.png)
+ ![This is an image](https://res.cloudinary.com/kolle1993/image/upload/v1684480765/Metalblog/loggeed_in_view_v2tqaj.png)
 
-  - Now there is a comment form avalible for the logged in user, also showing who you are posting as.
+  - Now there is a comment form avalible for the logged in user, also showing who you are posting as, in the latest update i am made you can now fill in the form and send a update request directly or delete the comment directly.
 
-  - The update button is already provided when logged a logged in user is authenticated (see comment crud funtion section.)
+  - The update button and delete button are provided as before but with a better UX and UI, when logged a logged in user is authenticated (see comment crud funtion section.)
 
-- ## Submitting a comment
+- ## Submitting a comment (Updated view!)
  - When submitting a comment, the comment is sent to the backend for admin approval, As seen below, this is the process of commenting:
 
- ![This is an image](https://res.cloudinary.com/kolle1993/image/upload/v1670234975/Metalblog/this_is_a_comment_of2xop.png)
+ ![This is an image](https://res.cloudinary.com/kolle1993/image/upload/v1684481032/Metalblog/loggeed_in_view_xdueqf.png)
 
  ![This is an image](https://res.cloudinary.com/kolle1993/image/upload/v1670235082/Metalblog/comment_approval_er8lzo.png)
 
@@ -188,30 +189,38 @@ Also worth mentioning that the "E" beside "preview" stands for "Explicit Content
 - After Admin approval, the comment is greenlit and you comment is now shown on the comment section of the page:
 ![This is an image](https://res.cloudinary.com/kolle1993/image/upload/v1670235581/Metalblog/comment_view_approved_flmg1t.png)
 
- - ## Comment CRUD Function
-- If you are a logged in user and you comment has been admin approved, you will se the 3 diffent options displayed on the comment field:
-![This is an image](https://res.cloudinary.com/kolle1993/image/upload/v1670239302/Metalblog/crud1_gfr8wi.png)
+ - ## Comment CRUD Function (Updated!)
+- If you are a logged in user and you comment has been admin approved, you will se the 2 diffent options displayed on the comment field:
+![This is an image](https://res.cloudinary.com/kolle1993/image/upload/v1684481160/Metalblog/Namnl%C3%B6s_cmjaxh.png)
 
 - The Delete & and Update button is only fuctional for the logged in user that has made the comment on the page.
 
-- Pressing delete will reflect directly on the frontend and you comment will be erased from the page.
-  The image's below show the update steps:
-  ### Set your new comment in the comment form and press "Update"
-  ![This is an image](https://res.cloudinary.com/kolle1993/image/upload/v1670239921/Metalblog/crud4_hk26ld.png)
+- Pressing delete or update will reflect directly on the frontend and you comment will be erased from the page.
+The comment field will still be there for the logged in user to have access to deleting or updating there comment at anytime (This is only visible for the logged in user. Not the most optimal UI or UX but it's understandable)
 
-   ### After pressing update, you will get a preview as shown below, is you are satisfied, press update again:
-  ![This is an image](https://res.cloudinary.com/kolle1993/image/upload/v1670239828/Metalblog/crud3_m7xbzf.png) 
+- ## 5.1 Changes To Comments!
+  - created a template tag folder as `templatetags` inside the blog folder and
+  registered it inside the installed_apps section under settings.py
 
-  ### The result is a updated comment with a new time stamp: 
-  ![This is an image](https://res.cloudinary.com/kolle1993/image/upload/v1670240498/Metalblog/crud5_bbc57a.png) 
+  - Inside the template tag folder created a function that checks the owner of the
+  comment. Loaded the template tag using {% load %} at the top of the blog
+  detail page
 
-  ### Now press delete:
-  ![This is an image](https://res.cloudinary.com/kolle1993/image/upload/v1670241187/Metalblog/cruddelete_h6hkst.png)
+  - If the comment belongs to the user who is logged in now, we show them the
+    delete and update button, otherwise we hide them.
 
-  ### As seen above, you comment has been deleted and the comment field is empty, the page also signals a message at the top leting you know your comment is gone.
+  - Made changes to the button, decreased the size of the delete button, adjusted the spacing and added the new input field. Also corrected the button on right to submit instead of update.
+
+  - Put a hidden input field inside the post detail page with a
+    name=”comment_id”. This carries the comment ID to the views.py while
+    updating the comment, just to know which comment to update.
+
+  - Updated the views accordingly. Checked if comment_id is none or not. If none we create a new comment otherwise we update the comment that matches
+  with the comment_id.
+
 <br />
 
- - ## Deployment Steps
+ - ## 6 Deployment Steps
     <br>
  - 1 Created Workspace
  - 2 Created app on heroku
@@ -229,7 +238,7 @@ Also worth mentioning that the "E" beside "preview" stands for "Explicit Content
 
   - The Heroku live app can be found [Here]()
  
- # Extentions Used
+ # 7 Extentions Used
  - Auto Close Tag
  - Auto Open Preview Panel
  - Beautify, but has been replaced with prettier
@@ -245,7 +254,7 @@ Also worth mentioning that the "E" beside "preview" stands for "Explicit Content
  - React Typescript snippet (XAcademy)
  <br />
 
- # Used Apps
+ # 8 Used Apps
 - django contrib admin (FOR BACKEND)
 - django contrib auth (FOR BACKEND)
 - django contrib contenttypes
@@ -264,10 +273,10 @@ Also worth mentioning that the "E" beside "preview" stands for "Explicit Content
 - Gunicorn (For server)
 - Bootstrap 4 (For styling and CSS templates)
 
- # Admin Panel
+ # 9 Admin Panel
   - The admin panel is the stardard django admin panel.
     - This is were you can manage all comments, make posts, and were all the data is stored.
-    ## Admin Layout:
+    ##  Admin Layout:
     Site administration is as shown below, the diffrent pages on the left and recent actions on the right:
     ![This is an image](https://res.cloudinary.com/kolle1993/image/upload/v1670253684/Metalblog/siteadmin_uc8sg3.png)
 
@@ -301,7 +310,7 @@ Also worth mentioning that the "E" beside "preview" stands for "Explicit Content
  <br />
 
 
- # Testing
+ # 10 Testing
 
   - Here are some results on my testing with the code and terminal result's.
 
@@ -320,7 +329,7 @@ Also worth mentioning that the "E" beside "preview" stands for "Explicit Content
 ## For future project's and improvments the testing will be more detailed, This is just an example of the understanding of the test's.
 <br />
 
- # UserStory
+ # 11 UserStory
  - Here i will post the userstory's provided in this project to keep an agile workstyle and a good way for me to keep my milestones in check for all the user functions.
    - To get redirected to my project list 
    <a href="https://github.com/users/Kollecollier/projects/14/views/1">click here!</a>
@@ -335,8 +344,9 @@ Also worth mentioning that the "E" beside "preview" stands for "Explicit Content
 
 <br />
 
- # Code Testing!
- - I have run my code i the different test's to se is there was anything wrong with my html or css.
+ # 12 Code Testing!
+
+- I have run my code i the different test's to se is there was anything wrong with my html or css.
 
  ### HTML with (https://validator.w3.org/):
   ## As you can see my tester is throwing some error's but that is due to image alt text's, these alt text's can't be added due to cloudinary is the hist for file storing, and also some other html error that are refering to the code but this is also showing due to bootstrap templates:
@@ -362,7 +372,7 @@ The Css file passed with flying green(Pls note this is swedish texted result's, 
   - The hight has no breakpoint according to my own testing.
 <br />
 
-# Future Improvments
+# 13 Future Improvments
 
 - As a developer it's important to see your errors and understand and see what can be better and can be improved! This is my take on future improvments!
 
@@ -376,7 +386,26 @@ Adding a notification code that let's admin's know when there has been a new app
   - Optimizing photo resolutions
 <br />
 
- # Manuall testing:
+# 14 Improvments since submission
+
+  - Made change's to comment model to improve user interface and user experience and cleared up some confusing part's.
+  <br />
+
+  - The post model has been changed and moded to ne more "custom" same with the comment model.
+
+  - Made maintenance on heroku app and updated os url for viwing.
+
+  - Updated validator section.
+<br />
+  
+  - Most models and view's have been updated to more custom.
+<br />
+
+- .
+<br />
+
+
+ # 15 Manuall testing:
    - During the coding process i have manually check the github problem terminal and resolves all issues as i have gone along.
    - I have also run the code in pep8 muliple times and corrected issues on the way.
    - Some error's under the process such as missing docstring's stil remain's on some pages.
@@ -388,7 +417,7 @@ Adding a notification code that let's admin's know when there has been a new app
       - Python
 
 
-# Debuging
+# 16 Debuging
  ### Some of the following occured as bugs or simply errors that i have resolved during the coding of this website.
  <br />
 
@@ -401,7 +430,7 @@ The error occured when i tryed to the the database on postgres, this error fixed
 When the testing was done, i commented out my local SQLite database and restored to my postgres.
 
 
- # Credits & Content
+ # 17 Credits & Content
  - Template's and this project ide and all boilerplates have been provided by my school [Code Institue](https://codeinstitute.net/se/) course of "Hello Django" & "I think therefor i blog".
 
  - Also a bigh thank's to my good friend Atit Bimali who worked with me to get my "Crud" functions working and give me a good source of information.
@@ -430,7 +459,7 @@ When the testing was done, i commented out my local SQLite database and restored
 
  - [Bloodstock Festival 2023](https://www.bloodstock.uk.com/events/boa-2023/stages)
 
- # Contact
+ # 18 Contact
 
  - If you have any question's or need to contact me in anyway:
    -  Email: kristoffer.collier@live.se
