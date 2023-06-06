@@ -28,15 +28,14 @@
     - ###  [Extentions](#7-extentions-used)
     - ###  [Installed apps](#8-used-apps)
     - ###  [Admin panel](#9-admin-panel)
-    - ###  [Testing](#10-testing)clear
-    - ###  [User storys](#11-userstory)
-    - ###  [Code testing](#12-code-testing)
-    - ###  [Future improvments](#13-future-improvments)
-    - ###  [Improvements since submission](#14-improvments-since-submission)
-    - ###  [Manual Test](#15-manuall-testing)
-    - ###  [Debugging](#16-debuging)
-    - ###  [Credits](#17-credits--content)
-    - ###  [Contact](#18-contact)
+    - ###  [User storys](#10-userstory)
+    - ###  [Code testing](#11-code-testing)
+    - ###  [Future improvments](#12-future-improvments)
+    - ###  [Improvements since submission](#13-improvments-since-submission)
+    - ###  [Manual Test](#14-manuall-testing)
+    - ###  [Debugging](#15-debuging)
+    - ###  [Credits](#16-credits--content)
+    - ###  [Contact](#17-contact)
 
  <br />
 
@@ -309,27 +308,7 @@ The comment field will still be there for the logged in user to have access to d
  ## That cover's the backend and the frontend for this django project.
  <br />
 
-
- # 10 Testing
-
-  - Here are some results on my testing with the code and terminal result's.
-
-  ## Index.html rendering:
-  - Code and Result's: 
-
-  ![This is an image](https://res.cloudinary.com/kolle1993/image/upload/v1670328095/indextest_t2fd42.png)
-
-
-  ## Base.html rendering:
-
-  - Code and Result's:
-
-   ![This is an image](https://res.cloudinary.com/kolle1993/image/upload/v1670328452/basetest_nd99ol.png)
-
-## For future project's and improvments the testing will be more detailed, This is just an example of the understanding of the test's.
-<br />
-
- # 11 UserStory
+ # 10 UserStory
  - Here i will post the userstory's provided in this project to keep an agile workstyle and a good way for me to keep my milestones in check for all the user functions.
    - To get redirected to my project list 
    <a href="https://github.com/users/Kollecollier/projects/14/views/1">click here!</a>
@@ -344,7 +323,7 @@ The comment field will still be there for the logged in user to have access to d
 
 <br />
 
- # 12 Code Testing!
+ # 11 Code Testing!
 
 - I have run my code i the different test's to se is there was anything wrong with my html or css.
 
@@ -372,7 +351,7 @@ The Css file passed with flying green(Pls note this is swedish texted result's, 
   - The hight has no breakpoint according to my own testing.
 <br />
 
-# 13 Future Improvments
+# 12 Future Improvments
 
 - As a developer it's important to see your errors and understand and see what can be better and can be improved! This is my take on future improvments!
 
@@ -386,7 +365,7 @@ Adding a notification code that let's admin's know when there has been a new app
   - Optimizing photo resolutions
 <br />
 
-# 14 Improvments since submission
+# 13 Improvments since submission
 
   - Made change's to comment model to improve user interface and user experience and cleared up some confusing part's.
   <br />
@@ -405,19 +384,88 @@ Adding a notification code that let's admin's know when there has been a new app
 <br />
 
 
- # 15 Manuall testing:
-   - During the coding process i have manually check the github problem terminal and resolves all issues as i have gone along.
-   - I have also run the code in pep8 muliple times and corrected issues on the way.
-   - Some error's under the process such as missing docstring's stil remain's on some pages.
+ # 14 Manuall testing:
+   - During the coding process i have manually check the github problem terminal and resolves all issues as i have gone along. I have also added a more detailed testing process for some databases. <br>
+<br>
 
-  - Used language:
-      - HTML
-      - CSS
-      - Javascript
-      - Python
+  ### Below i'll add testing notes and results for post and comments database:
+  <br>
 
+  ## Test Case: test_get_post_detail Description: 
+  <br>
 
-# 16 Debuging
+ - This test case verifies that the post detail page is displayed correctly   
+  when accessed by a user.<br>
+  NOTE: There are no images in this testing section only text.
+  <br>
+
+  1. Create a test user with the username 'testuser' and password 'testpassword'.
+
+  2. Create a test post with the following details:
+  Blog title: 'Test Post'
+  Slug: 'test-post'
+  Blog author: testuser (created in step 1)
+  Blog content: 'This is a test post content'
+  Status: 1 (published)
+
+  3. Create a test comment on the test post with the following details:
+  Blog post: test post (created in step 2)
+  User: testuser (created in step 1)
+  Message: 'Test comment'
+  Approved: True
+
+  4. Send a GET request to the 'post_detail' URL with the slug 'test-post'.
+
+  5. Verify that the response status code is 200 (OK).
+
+  6. Verify that the 'post_detail.html' template is used to render the response.
+
+  7. Verify that the number of comments in the response context is 1.
+
+- Expected Result:
+The post detail page is displayed correctly, and the number of comments is 1.
+
+## Test Case: test_post_comment!
+Description:<br>
+This test case verifies that a user can successfully post a comment on a post.
+
+Test Steps:
+
+1. Create a test user with the username 'testuser' and password 'testpassword'.
+
+2. Login with the test user credentials.
+
+3. Send a POST request to the 'post_detail' URL with the slug 'test-post' and the
+following form data:
+Message: 'New test comment'
+Verify that the 'commented' attribute in the response context is True.
+Verify that the number of comments in the response context is 1 (the recent comment
+is not approved yet).
+Expected Result:
+The comment is posted successfully, and the 'commented' attribute is True. The number of
+comments is 1 because the recent comment is not approved yet.
+
+- Expected Result:
+  The comment is posted successfully, and the 'commented' attribute is True. The number of comments is 1 because the recent comment is not approved yet.
+  <br>
+
+## Test Case: test_like_post
+Description:<br>
+This test case verifies that a user can successfully like a post.
+Test Steps:
+1. Create a test user with the username 'testuser' and password 'testpassword'.
+2. Login with the test user credentials.
+3. Send a POST request to the 'post_like' URL with the slug 'test-post'.
+4. Verify that the response status code is 302 (Redirect).
+5. Verify that the post's likes count is 1.
+6. Verify that the test user's like is associated with the post.
+
+- Expected Result:
+The post is liked successfully, and the post's likes count is 1. The test user's like is
+associated with the post.
+
+<br>
+# 15 Debuging
  ### Some of the following occured as bugs or simply errors that i have resolved during the coding of this website.
  <br />
 
@@ -430,7 +478,7 @@ The error occured when i tryed to the the database on postgres, this error fixed
 When the testing was done, i commented out my local SQLite database and restored to my postgres.
 
 
- # 17 Credits & Content
+ # 16 Credits & Content
  - Template's and this project ide and all boilerplates have been provided by my school [Code Institue](https://codeinstitute.net/se/) course of "Hello Django" & "I think therefor i blog".
 
  - Also a bigh thank's to my good friend Atit Bimali who worked with me to get my "Crud" functions working and give me a good source of information.
